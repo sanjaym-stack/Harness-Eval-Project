@@ -12,22 +12,6 @@ token usage, estimated cost, and a machine-readable raw run record.
 - Python 3.10 or newer
 - An agent command that accepts a workspace path when running live evaluations
 
-## Installation
-
-Create and activate a virtual environment, then install the project:
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install -e .
-```
-
-On macOS or Linux, activate the environment with:
-
-```bash
-source .venv/bin/activate
-```
-
 ## Quick start
 
 Run the standard deterministic evaluation with the repository launcher:
@@ -36,8 +20,8 @@ Run the standard deterministic evaluation with the repository launcher:
 python run.py
 ```
 
-The launcher automatically uses `.venv` when present, installs the project and
-its declared dependencies, then compares `harnesses/baseline` and
+The launcher automatically creates and uses `.venv`, installs the project and
+its declared dependencies into that environment, then compares `harnesses/baseline` and
 `harnesses/candidate` across all tasks. Reports are written to `results/`.
 
 For explicit control, run the CLI directly:
