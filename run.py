@@ -10,14 +10,21 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 
 
-def project_python() -> str:
-    """Return the project virtualenv interpreter when it is available."""
+def project_python() -> Path:
+    """Return the project virtualenv interpreter, creating the environment if needed."""
     executable = "python.exe" if os.name == "nt" else "python"
-    virtualenv_python = ROOT / ".venv" / ("Scripts" if os.name == "nt" else "bin") / executable
-    return str(virtualenv_python) if virtualenv_python.exists() else sys.executable
+    virtualenv_directory = ROOT / ".venv"
+    virtualenv_python = virtualenv_directory / ("Scripts" if os.name == "nt" else "bin") / executable
+    if not virtualenv_python.exists():
+        subprocess.run(
+            [sys.executable, "-m", "venv", str(virtualenv_directory)],
+            cwd=ROOT,
+            check=True,
+        )
+    return virtualenv_python
 
 
-def install_dependencies(python_executable: str) -> None:
+def install_dependencies(python_executable: Path) -> None:
     """Install requirements and register the project in the active environment."""
     pip_command = [
         python_executable,
