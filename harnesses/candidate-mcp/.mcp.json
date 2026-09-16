@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "static-analysis": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-ruff"],
+      "env": {}
+    }
+  }
+}

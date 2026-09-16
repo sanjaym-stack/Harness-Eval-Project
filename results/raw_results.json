@@ -1,0 +1,161 @@
+{
+  "baseline_summary": {
+    "harness_name": "baseline",
+    "total_runs": 2,
+    "successful_runs": 0,
+    "run_success_rate": 0.0,
+    "mean_pass_rate": 0.583,
+    "mean_requirement_satisfaction": 0.571,
+    "ruff_pass_rate": 1.0,
+    "mypy_pass_rate": 1.0,
+    "mean_duration_seconds": 0.05,
+    "mean_tokens": 925.0,
+    "total_estimated_cost": 0.0097
+  },
+  "candidate_summary": {
+    "harness_name": "candidate",
+    "total_runs": 2,
+    "successful_runs": 2,
+    "run_success_rate": 1.0,
+    "mean_pass_rate": 1.0,
+    "mean_requirement_satisfaction": 1.0,
+    "ruff_pass_rate": 0.0,
+    "mypy_pass_rate": 0.5,
+    "mean_duration_seconds": 0.05,
+    "mean_tokens": 1485.0,
+    "total_estimated_cost": 0.0169
+  },
+  "pass_rate_delta": 0.417,
+  "req_satisfaction_delta": 0.429,
+  "cost_delta_percentage": 74.23,
+  "duration_delta_seconds": 0.0,
+  "verdict": {
+    "verdict": "POSITIVE WITH COST TRADE-OFF",
+    "summary_reason": "Candidate improved correctness and requirements but incurred substantial cost overhead.",
+    "detailed_reasons": [
+      "Correctness improved: pass rate Δ=+41.7%, requirements Δ=+42.9%.",
+      "Token cost increased significantly (+74.2%)."
+    ],
+    "thresholds_applied": {
+      "min_pass_rate_delta": 0.05,
+      "regression_tolerance": -0.02,
+      "cost_tradeoff_threshold_pct": 25.0
+    }
+  },
+  "raw_runs": [
+    {
+      "task_id": "task-001",
+      "harness_name": "baseline",
+      "run_index": 1,
+      "exit_code": 0,
+      "duration_seconds": 0.05,
+      "tests_passed": 2,
+      "tests_failed": 2,
+      "tests_total": 4,
+      "pass_rate": 0.5,
+      "requirement_results": {
+        "R1": true,
+        "R2": false,
+        "R3": true,
+        "R4": false
+      },
+      "quality": {
+        "ruff_passed": true,
+        "ruff_violations": 1,
+        "mypy_passed": true,
+        "mypy_errors": 0
+      },
+      "input_tokens": 800,
+      "output_tokens": 200,
+      "total_tokens": 1000,
+      "estimated_cost_usd": 0.0054,
+      "is_mock": true,
+      "error_message": null
+    },
+    {
+      "task_id": "task-001",
+      "harness_name": "candidate",
+      "run_index": 1,
+      "exit_code": 0,
+      "duration_seconds": 0.05,
+      "tests_passed": 4,
+      "tests_failed": 0,
+      "tests_total": 4,
+      "pass_rate": 1.0,
+      "requirement_results": {
+        "R1": true,
+        "R2": true,
+        "R3": true,
+        "R4": true
+      },
+      "quality": {
+        "ruff_passed": false,
+        "ruff_violations": 65,
+        "mypy_passed": false,
+        "mypy_errors": 1
+      },
+      "input_tokens": 1400,
+      "output_tokens": 450,
+      "total_tokens": 1850,
+      "estimated_cost_usd": 0.01095,
+      "is_mock": true,
+      "error_message": null
+    },
+    {
+      "task_id": "task-002",
+      "harness_name": "baseline",
+      "run_index": 1,
+      "exit_code": 0,
+      "duration_seconds": 0.05,
+      "tests_passed": 2,
+      "tests_failed": 1,
+      "tests_total": 3,
+      "pass_rate": 0.6666666666666666,
+      "requirement_results": {
+        "R1": true,
+        "R2": false,
+        "R3": true
+      },
+      "quality": {
+        "ruff_passed": true,
+        "ruff_violations": 1,
+        "mypy_passed": true,
+        "mypy_errors": 0
+      },
+      "input_tokens": 700,
+      "output_tokens": 150,
+      "total_tokens": 850,
+      "estimated_cost_usd": 0.00435,
+      "is_mock": true,
+      "error_message": null
+    },
+    {
+      "task_id": "task-002",
+      "harness_name": "candidate",
+      "run_index": 1,
+      "exit_code": 0,
+      "duration_seconds": 0.05,
+      "tests_passed": 3,
+      "tests_failed": 0,
+      "tests_total": 3,
+      "pass_rate": 1.0,
+      "requirement_results": {
+        "R1": true,
+        "R2": true,
+        "R3": true
+      },
+      "quality": {
+        "ruff_passed": false,
+        "ruff_violations": 15,
+        "mypy_passed": true,
+        "mypy_errors": 0
+      },
+      "input_tokens": 900,
+      "output_tokens": 220,
+      "total_tokens": 1120,
+      "estimated_cost_usd": 0.006,
+      "is_mock": true,
+      "error_message": null
+    }
+  ]
+}

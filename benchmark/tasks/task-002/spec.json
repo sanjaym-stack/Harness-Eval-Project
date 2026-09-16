@@ -1,0 +1,27 @@
+{
+  "id": "task-002",
+  "name": "Add GET /users/{user_id} with 404 handling",
+  "description": "Single-user lookup with proper error handling.",
+  "prompt_file": "prompt.md",
+  "eval_test_file": "test_eval.py",
+  "requirements": [
+    {
+      "id": "R1",
+      "description": "Return existing user by id",
+      "check_type": "pytest",
+      "target": "test_get_existing_user"
+    },
+    {
+      "id": "R2",
+      "description": "Return 404 for missing id",
+      "check_type": "pytest",
+      "target": "test_get_missing_user_404"
+    },
+    {
+      "id": "R3",
+      "description": "Reject non-integer user_id with HTTP 422",
+      "check_type": "pytest",
+      "target": "test_get_user_non_integer_id_422"
+    }
+  ]
+}

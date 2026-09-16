@@ -1,0 +1,33 @@
+{
+  "id": "task-001",
+  "name": "Add pagination to GET /users",
+  "description": "Add pagination support with page and page_size query parameters and boundary validation.",
+  "prompt_file": "prompt.md",
+  "eval_test_file": "test_eval.py",
+  "requirements": [
+    {
+      "id": "R1",
+      "description": "Accept page and page_size query parameters with defaults page=1, page_size=10",
+      "check_type": "pytest",
+      "target": "test_pagination_defaults"
+    },
+    {
+      "id": "R2",
+      "description": "Reject page < 1 or page_size < 1 or page_size > 100 with HTTP 422",
+      "check_type": "pytest",
+      "target": "test_pagination_validation"
+    },
+    {
+      "id": "R3",
+      "description": "Return structured payload containing items, total, page, and page_size",
+      "check_type": "pytest",
+      "target": "test_pagination_payload_structure"
+    },
+    {
+      "id": "R4",
+      "description": "Reject page_size=0 with HTTP 422",
+      "check_type": "pytest",
+      "target": "test_zero_page_size_rejected"
+    }
+  ]
+}
